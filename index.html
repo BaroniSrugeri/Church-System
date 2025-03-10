@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JV SYSTEM</title>
+</head>
+<body>
+    <h1>JV CHURCH SYSTEM</h1>
+    <h2>Cadastro de Celebrantes</h2>
+    <input type="text" id="celebrante_nome" placeholder="Nome" required>
+    <input type="date" id="celebrante_nascimento" placeholder="Data de Nascimento" required>
+    <button onclick="adicionarCelebrante()">Cadastrar</button>
+    <ul id="lista_celebrantes"></ul>
+
+    <h2>Cadastro de Participantes</h2>
+    <input type="text" id="participante_nome" placeholder="Nome" required>
+    <input type="date" id="participante_nascimento" placeholder="Data de Nascimento" required>
+    <button onclick="adicionarParticipante()">Cadastrar</button>
+    <ul id="lista_participantes"></ul>
+
+    <h2>Cadastro de Celebrações</h2>
+    <input type="date" id="celebracao_data" placeholder="Data" required>
+    <input type="date" id="celebracao_horario" placeholder="Horario" required>
+    <select id="celebracao_celebrante" required></select>
+    <button onclick="adicionarCelebracao()">Cadastrar</button>
+    <ul id="lista_celebraacoes"></ul>
+
+    <h2>Aniversariantes</h2>
+    <ul id="lista_aniversariantes"></ul>
+
+</body>
+</html>
