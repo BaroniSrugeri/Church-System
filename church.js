@@ -50,3 +50,45 @@ function listarCelebracoes(){
     db.celebracoes.forEach(c => {const celebrante = db.celebrantes.find(x => x.id == c.id+celebrante)?.nome || 'Desconhecido'; lista += `<li>${c.data} - ${c.horario} - ${c.celebrante} <button onclick='excluirCelebracao(${c.id})'>Excluir</button><li>`})
     document.getElementById("lista_celebracoes").innetHTML = lista;
 }
+function listarCelebrantes(){
+    let lista = "";
+    db.celebrantes.forEach(c =>{lista += `<li>${c.nome} - ${c.nascimento} <button onclick='excluirCelebrantes(${c.id})>Excluir</button></li>`});
+    document.getElementById("lista_celebracoes").innetHTML = lista;
+    carregarCelebrantesDropdown();
+}
+function listarParticipantes(){
+    let lista = "";
+    db.participantes.forEach(p => {lista += `<li> ${p.nome} - ${p.nascimento} <button onclick='excluirParticipante(${p.id})'>Excluir</button></li>`;});
+    document.getElementById("lista_participantes").innerHTML = lista;
+}
+
+function excluirCelebrantes(id){
+    db.celebrantes = db.celebrantes.filter(c => c.id !== id);
+    salvarDados();
+    listarCelebrantes();
+    listarAniversariantes();
+}
+function excluirParticipante(id){
+    db.celebrantes = db.celebrantes.filter(c => c.id !== id);
+    salvarDados();
+    listarParticipantes();
+    listarAniversariantes();
+}
+function excluirCelebracao(id){
+    db.celebracoes = db.celebracoes.filter(c => c.id !== id);
+    salvarDados();
+    listarCelebracoes();
+}
+function listarAniversariantes(){
+    const hoje = new Date();
+    const diaAtual = hoje.getDate();
+    const mesAtual = hoje.getMonth()+1;
+    let aniversariantes = "";
+}
+window.onload = function(){
+    carregarDados();
+    listarCelebracoes();
+    listarParticipantes();
+    listarCelebrantes();
+    listarAniversariantes();
+};
